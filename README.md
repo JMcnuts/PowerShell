@@ -111,3 +111,76 @@ Get-Process | Where-Object{$_.starttime} | `
 Measure-Object -Property Starttime -Minimum -Maximum |`
 Select-Object -Property Minimum, Maximum
 ```
+
+
+
+
+# Exercises
+## Find Cmdlets
+```
+
+Update-Help
+get-help *process*
+get-command -noun process
+Get-Service
+<# this is
+a mulitline
+comment #>
+$var1 = Read-Host
+
+Write-Output $var1
+```
+Running Cmdlets
+```
+Get-Process -ProcessName s*
+$array = "gal", "dir", "echo", "?", "%", "ft"
+$array | ForEach-Object{Get-Alias $_}
+Get-Alias -Name gal
+gal -Name dir
+gal -Name echo
+gal -Name ?
+gal -Name %
+gal -Name ft
+#Get-NetFirewallrule
+set-alias gh Get-Help
+gh
+```
+Variables
+```
+$var1 = Get-Random -Minimum 25 -Maximum 51
+$var2 = Get-Random -Minimum 1 -Maximum 11
+$sum = $var1 + $var2
+$sub = $var1 - $var2
+$prod = $var1 * $var2
+$quo = $var1 / $var2
+Write-Host $var1,+,$var2,=,$sum
+Write-Host $var1 "-" $var2 "=" $sub
+Write-Host $var1 "*" $var2 "=" $prod
+Write-Host $var1 "/" $var2 "=" $quo
+"{0} + {1} = {2}" -f $var1, $var2, $sum
+Write-Output "test $var2"
+```
+```
+Variables and Math
+$var1 = 1
+$var2 = 2
+$var3 = 3
+$var6 = $var1 + $var2 + $var3
+$vars = "hello"
+[array]$vars[0..4]
+$myblock = { get-service | format-table name, status}
+&$myblock or invoke-command $myblock (runs the command)
+backtick is escape character for word wrap in ISE
+sort-object -property * -descending
+```
+
+Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
+
+
+Automatic Variables: $false, $true, $_ (pipeline), $Matches, $input
+
+Typecasting: [string]$var + 'hello', ([string]$var+'hasdf').GetType()
+
+return specific part of table: ([string]$var+'hasdf').GetType().Name
+
+see all properties and methods: | Get-Member
