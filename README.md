@@ -94,4 +94,19 @@ Write-Host
 $var1..$var2 | ForEach-Object {$PSitem} 
 $var1..$var2 | ForEach-Object {$PSitem} | Sort-Object -Descending
 ```
+Practical Exercise: The Pipeline
+Display the start time of the earliest and latest running processes
 
+Identify a cmdlet that returns the current date and time then using this cmdlet and Select-object, display only the current day of the week
+
+Identify a cmdlet that displays a list of installed hotfixes.
+
+Extend the expression to sort the list by install date, and display only the install date and hotfix ID.
+
+Extend the expression further, but this time sort by description, include description, hotfix ID, and install Date.
+
+```
+Get-Process | Where-Object{$_.starttime} | `
+Measure-Object -Property Starttime -Minimum -Maximum |`
+Select-Object -Property Minimum, Maximum
+```
