@@ -51,3 +51,32 @@ $var = "Hello, World"
 '$var1'
 "$var1"
 ```
+```
+$myblock = { Get-Service | Format-Table Name, Status}
+{Get-Service | Format-Table Name, Status}
+&$myblock
+Invoke-Command $myblock
+
+$a = 1
+$b = {1+1}
+$a += &$b
+Write-Output $a
+```
+```
+Get-ChildItem "C:\Users\student\Desktop" | Sort-Object
+```
+```
+Get-ChildItem | Sort-Object `
+-Property Lenght -Descending
+```
+```
+Get-service | Sort-Object status
+```
+```
+Get-process | Group-Object {$_.name.Substring(0,1).ToUpper()}`
+ | ForEach-Object{($_.name + " ") *7; "=============";$_.Group}
+```
+```
+
+
+
