@@ -94,7 +94,8 @@ Write-Host
 $var1..$var2 | ForEach-Object {$PSitem} 
 $var1..$var2 | ForEach-Object {$PSitem} | Sort-Object -Descending
 ```
-Practical Exercise: The Pipeline
+## Practical Exercise: The Pipeline
+
 Display the start time of the earliest and latest running processes
 
 Identify a cmdlet that returns the current date and time then using this cmdlet and Select-object, display only the current day of the week
