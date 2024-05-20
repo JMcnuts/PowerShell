@@ -77,6 +77,12 @@ Get-process | Group-Object {$_.name.Substring(0,1).ToUpper()}`
  | ForEach-Object{($_.name + " ") *7; "=============";$_.Group}
 ```
 ```
+1..5 | ForEach-Object {$PSitem+1}
+
+```
+```
+1..5 | ForEach-Object {$PSitem+1}
+```
 
 
 
