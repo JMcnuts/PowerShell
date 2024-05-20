@@ -112,7 +112,7 @@ Measure-Object -Property Starttime -Minimum -Maximum |`
 Select-Object -Property Minimum, Maximum
 ```
 
-## Comparison and Condition 
+## Comparison and Condition :
 ```
 $line1 = "Do you have model number: MT5437 for john.doe@sharklasers.com?"
 $line2 = "What model number for john.doe@sharklasers.com?"
@@ -137,7 +137,22 @@ $line2 = "What model number for john.doe@sharklasers.com?"
      Write-Output "Is the model number for line 2"
      }
 ```
+```
+$line1 = "Do you have model number: MT5437 for john.doe@sharklasers.com?"
+$line2 = "What model number for john.doe@sharklasers.com?"
 
+$pattern = "[A-Z]{2}[0-9]{4}"
+$line1,$line2 | ForEach-Object  {
+        if($_ -match $pattern) {
+            Write-Host $Matches[0]": $_"
+        }
+            else{
+            Write-Host "No matches found on : $_"
+         }
+    }
+     'MT5437' -match '[A-Z]{2}[0-9]{4}'
+     $Matches
+```
 
 
 # Exercises
