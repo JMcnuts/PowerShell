@@ -83,6 +83,15 @@ Get-process | Group-Object {$_.name.Substring(0,1).ToUpper()}`
 ```
 1..5 | ForEach-Object {$PSitem+1} #Listing form 1-5 +1
 ```
+Array and reverse array in between two random numbers:
+```
+#Example of a sort descending pre-set array #10, 20, 30 | Sort-Object -Descending 
+$var1 = Get-Random -Minimum -10 -Maximum 1
+$var2 = Get-Random -Minimum 1 -Maximum 21
 
-
+Write-Host  
+"{0} , {1} " -f $var1, $var2
+$var1..$var2 | ForEach-Object {$PSitem} 
+$var1..$var2 | ForEach-Object {$PSitem} | Sort-Object -Descending
+```
 
