@@ -43,3 +43,11 @@ $var1 = 10
 '$var1'
 "$var1"
 ```
+```
+$var1 = 10
+$var = "Hello, World"
+[array]$var[0..5]
+
+'$var1'
+"$var1"
+```
