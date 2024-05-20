@@ -112,6 +112,31 @@ Measure-Object -Property Starttime -Minimum -Maximum |`
 Select-Object -Property Minimum, Maximum
 ```
 
+## Comparison and Condition 
+```
+$line1 = "Do you have model number: MT5437 for john.doe@sharklasers.com?"
+$line2 = "What model number for john.doe@sharklasers.com?"
+
+    $line1 -replace '\D+([0-9]*).*','$1' 
+     if ($line1 -replace '\D+([0-9]*).*','$1' -le 0)
+     {
+     Write-Output "Model number wasn't found for line 1"
+     }
+     else 
+     {
+     Write-Output "Is the model number for line 1"
+     }
+
+     $line2 -replace '\D+([0-9]*).*','$1' 
+     if ($line2 -replace '\D+([0-9]*).*','$1' -le 0) 
+     {
+     Write-Output "Model number wasn't found for line 2"
+     }
+     else 
+     {
+     Write-Output "Is the model number for line 2"
+     }
+```
 
 
 
