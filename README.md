@@ -214,6 +214,26 @@ $myblock = { get-service | format-table name, status}
 backtick is escape character for word wrap in ISE
 sort-object -property * -descending
 ```
+## If statements :
+```
+$x = 0
+if ($x -eq 5) {
+    Write-Host "Bob"
+    }
+elseif ($x -eq 4) {
+    Write-Host "Sue"
+    }
+elseif ($x -eq 2) {
+    Write-Host "Tom"
+    }
+elseif ($x -eq 1) {
+    Write-Host "Mary"
+    }
+else {
+    Write-Host "Who am I ?"
+    }
+
+```
 
 Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
 
