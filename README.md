@@ -382,8 +382,12 @@ end { $Sum }
 ((1,2,3,4,5,6,7,8,9 | Get-Sum)*2) + 10
 ```
 
+```
+Get-Process | Select-Object -Property ProcessName, Id, WS
 
-
+Get-Process | Where-Object {$_.name -like "*ms*"} |`
+Select-Object -Property ProcessName, Id, WS
+```
 
 Automatic Variables: $false, $true, $_ (pipeline), $Matches, $input
 
