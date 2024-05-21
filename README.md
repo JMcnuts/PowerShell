@@ -234,6 +234,24 @@ else {
     }
 
 ```
+```
+$BB = "Mr. Krabs", "Sandy", "SpOnge bOb", "Patrick","Larry the Lobster","Plankton","Gary"
+
+foreach($fish in $BB){$fish.tolower()}
+foreach($fish in $BB){$fish.toupper()}
+
+foreach($fish in $BB){
+    if ($fish -like 'SPONGE*'){
+        "$fish is the best fry cook"
+        }
+        elseif($fish -like '*lob' ){
+        "$fish has the most gains"
+        }
+        else{
+        "$fish  is a fine citizen"
+        }
+        }
+```
 
 Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
 
