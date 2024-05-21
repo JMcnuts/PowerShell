@@ -269,6 +269,13 @@ foreach($fish in $BB){
              }
             }
 ```
+
+```
+$ray = "notepad", "msedge", "mspaint"
+Remove-Item -path pwd\user.txt
+$ray | ForEach-Object{start-process $_}
+$ray | ForEach-Object{(get-process $_).id | Out-File -append -FilePath pwd\user.txt}
+Get-Content -Path $pwd\user.txt | ForEach-Object{stop-process -id $_}
 Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
 
 
