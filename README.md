@@ -408,7 +408,7 @@ do{
 
 
 ```
-## Same but starting from 0 with a stopping condition at 4
+## Same but starting from 0 with a stopping condition at 3
 ```
 
 
@@ -418,7 +418,7 @@ do{
     $num++
     } until ($num -gt 3)
 
-
+```
 
 
 
