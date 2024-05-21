@@ -445,8 +445,12 @@ end {($list -join " " )}
 }
 1,2,3 | Print-list
 ```
-
-
+## Multiply the arguments within the function: 
+```
+function Get-product ([int]$a,[int]$b,[int]$c) {
+    return ($a * $b * $c)
+}
+```
 Done 
 
 
