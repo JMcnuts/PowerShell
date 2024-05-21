@@ -269,6 +269,7 @@ foreach($fish in $BB){
              }
             }
 ```
+## Automatic execution o processes and information gathering about them:
 
 ```
 $ray = "notepad", "msedge", "mspaint"
