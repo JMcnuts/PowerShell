@@ -278,7 +278,45 @@ $ray | ForEach-Object{(get-process $_).id | Out-File -append -FilePath pwd\user.
 Get-Content -Path $pwd\user.txt | ForEach-Object{stop-process -id $_}
 Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
 
+```
+or
+```
+<#Query the processes and display only the following information in order by process ID
 
+Process ID
+
+Process Name
+
+The time the process started
+
+The amount of time the process has spent on the processor
+
+The amount of memory assigned to the process#>
+
+$procs = "notepad", "msedge", "mspaint"
+$procs | ForEach-Object { Start-Process $_} 
+$procs | ForEach-Object { Stop-Process -name $_}
+
+$file = "$pwd\procs.txt"
+$procs | ForEach-Object { Start-Process $_ }
+foreach($proc in $procs){
+    Get-Process | Where-Object{$_.Name -like $proc} | `
+    ForEach-Object { Add-Content $file $_.Id}}
+Get-Content .\procs.txt | ForEach-Object{Stop-Process $_}
+
+foreach($proc in $procs){
+    Get-Process | Where-Object{$_.Name -like $proc} | `
+    Format-Table -Property id, name, starttime, totalprocessortime, `
+    VirtualMemorySize, WorkingSet64 }
+
+foreach($proc in $procs){
+    Get-Process $proc | `
+    Format-Table -Property id, name, starttime, totalprocessortime, `
+    VirtualMemorySize, WorkingSet64 }
+
+$procs | ForEach-Object { Get-Process $_ | select id, name, starttime, `
+totalprocessortime, VirtualMemorySize, WorkingSet64 | Format-Table }
+```
 Automatic Variables: $false, $true, $_ (pipeline), $Matches, $input
 
 Typecasting: [string]$var + 'hello', ([string]$var+'hasdf').GetType()
