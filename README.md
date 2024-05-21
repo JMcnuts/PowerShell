@@ -316,7 +316,40 @@ foreach($proc in $procs){
 
 $procs | ForEach-Object { Get-Process $_ | select id, name, starttime, `
 totalprocessortime, VirtualMemorySize, WorkingSet64 | Format-Table }
+
 ```
+
+## IPV4 OCTECT VALIDATION
+
+```
+foreach ($oct in ('2.3.2.4' -split '\.')) { 
+    if ([int]$oct -lt 0 -or [int]$oct -gt 255){
+        "$oct is not a valid octect"
+    }
+    else {"$oct is a valid octet"}
+    }
+
+('2.3.2.3' -split '\.') | ForEach-Object{
+    if([int]$_ -lt 0 -or [int]$_ -gt 255){
+    "$_is not a valid octect"
+    }
+      else {"$oct is a valid octet"}
+    }
+    'cat','dog' -join "."
+    'cat'.StartsWith('c')
+    'dog'.EndsWith('t')
+```
+
+
+
+
+
+
+
+
+
+
+
 Automatic Variables: $false, $true, $_ (pipeline), $Matches, $input
 
 Typecasting: [string]$var + 'hello', ([string]$var+'hasdf').GetType()
