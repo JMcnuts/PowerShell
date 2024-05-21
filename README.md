@@ -420,6 +420,31 @@ do{
 
 ```
 
+```
+function Print-Input{
+$sum = 0 
+foreach ($num in $input) {
+$num
+$sum+=$num}
+$sum
+}
+function Print-PSitem{
+Process{Write-Output "$PSItem"}
+}
+1,2,3 | Print-Input
+
+
+
+```
+## Print a list 
+```
+function Print-list{
+begin {$list = @()}
+process {$list += $input}
+end {($list -join " " )} 
+}
+1,2,3 | Print-list
+```
 
 
 
