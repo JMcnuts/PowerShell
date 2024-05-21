@@ -252,7 +252,23 @@ foreach($fish in $BB){
         }
         }
 ```
-
+## Magic Number
+```
+  $num = [int]0 
+        $magic = [int]182
+        while ($True){
+            $num = [int](Read-Host -Prompt " Pick a number betweek 0 and 200")
+            if ($num -lt $magic){
+                "Too low!"
+                }
+            elseif($num -gt $magic){
+                "Too high!"
+                }
+            else {
+             "blink -$magic" ; break
+             }
+            }
+```
 Get-process | group-object {$_.name.substring(0,1).ToUpper()} | foreach-object{($_.name + " ") * 7; "======"; $_.group}
 
 
