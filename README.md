@@ -342,13 +342,45 @@ foreach ($oct in ('2.3.2.4' -split '\.')) {
     'cat'.StartsWith('c')
     'dog'.EndsWith('t')
 ```
+## Elements provided on the pipeline:
+
+
+```
+
+function cool-printer(){
+
+begin {
+
+}
+
+process { $_
+
+}
+
+
+end {
+
+}
+
+1,2,3,4,5 | cool-printer
 
 
 
 
 
 
+}
 
+```
+## Making a function that will add numbers up
+```
+function Get-Sum { 
+Begin { $Sum = 0 }
+Process { $Sum += $_}
+end { $Sum } 
+}
+((1,2,3,4,5,6,7,8,9 | Get-Sum)*2) + 10
+```
 
 
 
