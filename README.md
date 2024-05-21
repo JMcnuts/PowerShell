@@ -328,7 +328,9 @@ foreach ($oct in ('2.3.2.4' -split '\.')) {
     }
     else {"$oct is a valid octet"}
     }
-
+```
+## OR
+```
 ('2.3.2.3' -split '\.') | ForEach-Object{
     if([int]$_ -lt 0 -or [int]$_ -gt 255){
     "$_is not a valid octect"
