@@ -381,6 +381,7 @@ end { $Sum }
 }
 ((1,2,3,4,5,6,7,8,9 | Get-Sum)*2) + 10
 ```
+## Get processes with id and WS
 
 ```
 Get-Process | Select-Object -Property ProcessName, Id, WS
@@ -388,6 +389,40 @@ Get-Process | Select-Object -Property ProcessName, Id, WS
 Get-Process | Where-Object {$_.name -like "*ms*"} |`
 Select-Object -Property ProcessName, Id, WS
 ```
+## Ascending numbers, starting at 4:
+
+
+```
+do{
+    codeblock
+    } while(condition)
+
+    $num = 4
+    do {
+    $num
+    $num++
+    } while ($true)
+
+
+
+
+
+```
+## Same but starting from 0 with a stopping condition at 4
+```
+
+
+ $num = 0
+    do {
+    $num
+    $num++
+    } until ($num -gt 3)
+
+
+
+
+
+
 
 Automatic Variables: $false, $true, $_ (pipeline), $Matches, $input
 
