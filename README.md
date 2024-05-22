@@ -561,6 +561,16 @@ $a = 0
     
     }
 ```
+or #($addr -split"\.")[3]
+```
+  foreach($octet in $addr.split(".")){
+        if([int]$octet -lt 0 -or [int]$octet -gt 255){
+        return $false
+        }
+        }
+        return $true
+        }
+```
 ```
     function q10 ($filepath,$lasthash) {
     <# Return `$true if the contents of the file given in the
