@@ -561,6 +561,7 @@ $a = 0
     
     }
 ```
+```
     function q10 ($filepath,$lasthash) {
     <# Return `$true if the contents of the file given in the
        `$filepath argument have changed since `$lasthash was
@@ -590,7 +591,7 @@ return $true
 
 
 
-```
+
 
 
 
