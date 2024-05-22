@@ -561,7 +561,7 @@ $a = 0
     
     }
 ```
-or #($addr -split"\.")[3]
+or #($addr -split"\.")[3] (To evaluate individual octets)
 ```
   foreach($octet in $addr.split(".")){
         if([int]$octet -lt 0 -or [int]$octet -gt 255){
