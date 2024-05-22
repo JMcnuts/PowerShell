@@ -578,12 +578,13 @@ or #($addr -split"\.")[3] (To evaluate individual octets)
        computed. `$lasthash is the previously computed SHA256
        hash (as a string) of the contents of the file. #>
   
-    #Get-FileHash $filepath 
     
+    $hash = Get-FileHash -Algorithm SHA256 $filepath 
+    return $hash.hash -ne $lasthash
 
 
 
-return $true
+
 }
 ```
 
