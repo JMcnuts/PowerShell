@@ -451,6 +451,47 @@ function Get-product ([int]$a,[int]$b,[int]$c) {
     return ($a * $b * $c)
 }
 ```
+
+
+```
+function q2($arr,$rows,$cols,$key) {
+    <# Search the 2 dimensional array for the first occurance of key at column index 0
+       and return the value at column index 9 of the same row.
+       Return -1 if the key is not found.
+    #>
+
+foreach($i in $arr){
+ if($i[0] -eq $key){
+  return $i[9]
+ }
+}
+return -1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
 Done 
 
 
